@@ -21,3 +21,11 @@
   color: white;
   margin-top: 55vh;
 }
+
+.lanchasRetornadas{
+  position: fixed;
+  right:0;
+  width: 400;
+  top: 0;
+  background-color: beige;
+}
