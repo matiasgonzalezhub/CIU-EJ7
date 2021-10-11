@@ -3,9 +3,9 @@ import React, { Fragment } from "react";
 const Embarcacion = ({
   embarcacion,
   embarcaciones,
-  lanchasRetornadas,
-  registraRetorno,
-  deshaceRetorno,
+  embarcacionesRetornadas,
+  registrarRetorno,
+  deshacerRetorno,
 }) => {
   const { id, nombre, matricula } = embarcacion;
 
@@ -20,26 +20,39 @@ const Embarcacion = ({
     return false;
   }
 
-  const registrarRetornoEmbarcacion = (id) => {
+    const registrarRetornoEmbarcacion = (id) => {
+        debugger;
     const embarcacion = embarcaciones.filter(
       (embarcacion) => embarcacion.id === id
     )[0];
 
-    if (!containsObject(embarcacion, lanchasRetornadas)) {
-      registraRetorno([...lanchasRetornadas, embarcacion]);
+    const arrayActualizado = embarcaciones.filter(
+      (embarcacion) => embarcacion.id !== id
+    );
+
+    if (!containsObject(embarcacion, embarcacionesRetornadas)) {
+      registrarRetorno([...embarcacionesRetornadas, embarcacion]);
     }
+
+    deshacerRetorno(arrayActualizado);
   };
 
-  const deshacerRetornoEmbarcacion = (id) => {
-    console.log("Entro ");
-    const embarcacion = lanchasRetornadas.filter(
+    const deshacerRetornoEmbarcacion = (id) => {
+        debugger;
+    const embarcacionRetorno = embarcacionesRetornadas.filter(
       (embarcacion) => embarcacion.id === id
     )[0];
 
-    if (containsObject(embarcacion, lanchasRetornadas)) {
-      registraRetorno([...lanchasRetornadas, embarcacion]);
+    const arrayRetornoActualizado = embarcacionesRetornadas.filter(
+      (embarcacion) => embarcacion.id !== id
+    );
+
+    if (!containsObject(embarcacionRetorno, embarcaciones)) {
+      deshacerRetorno(arrayRetornoActualizado);
+      registrarRetorno([...embarcaciones, embarcacionRetorno]);
     }
-    console.log("se deshace retorno de lancha" + embarcaciones);
+
+    console.log("se deshace retorno de lancha");
   };
 
   return (
@@ -62,4 +75,5 @@ const Embarcacion = ({
     </Fragment>
   );
 };
+
 export default Embarcacion;

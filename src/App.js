@@ -14,7 +14,7 @@ function App() {
     { id: 4, nombre: "Tigre", matricula: "ass345" },
   ]);
 
-  const [lanchasRetornadas, registraRetorno] = useState([]);
+  const [embarcacionesRetornadas, registrarRetorno] = useState([]);
 
   return (
     <div className="App">
@@ -26,13 +26,13 @@ function App() {
             key={embarcacion.id}
             embarcacion={embarcacion}
             embarcaciones={embarcaciones}
-            lanchasRetornadas={lanchasRetornadas}
-            registraRetorno={registraRetorno}
-            deshaceRetorno={deshacerRetorno}
+            embarcacionesRetornadas={embarcacionesRetornadas}
+            registrarRetorno={registrarRetorno}
+            deshacerRetorno={deshacerRetorno}
           />
         ))}
 
-        <LanchasRetornadas lanchasRetornadas={lanchasRetornadas} />
+        <LanchasRetornadas embarcacionesRetornadas={embarcacionesRetornadas} />
 
         <Footer fecha={fecha} />
       </Fragment>

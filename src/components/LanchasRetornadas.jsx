@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 import Embarcacion from "./Embarcacion";
 
-const LanchasRetornadas = ({ lanchasRetornadas }) => {
+const LanchasRetornadas = ({ embarcacionesRetornadas }) => {
   return (
     <Fragment>
       <div className="lanchasRetornadas">
         <h3> Lanchas retornadas </h3>
-        {lanchasRetornadas.map((embarcacion) => (
+        {embarcacionesRetornadas.map((embarcacion) => (
           <Embarcacion key={embarcacion.id} embarcacion={embarcacion} />
         ))}
       </div>
