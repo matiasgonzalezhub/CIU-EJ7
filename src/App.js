@@ -32,7 +32,12 @@ function App() {
           />
         ))}
 
-        <LanchasRetornadas embarcacionesRetornadas={embarcacionesRetornadas} />
+        <LanchasRetornadas
+         //   embarcaciones={embarcaciones}
+          embarcacionesRetornadas={embarcacionesRetornadas}
+          registrarRetorno={registrarRetorno}
+             deshacerRetorno={deshacerRetorno}
+        />
 
         <Footer fecha={fecha} />
       </Fragment>

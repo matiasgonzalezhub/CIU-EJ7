@@ -5,7 +5,7 @@ const Embarcacion = ({
   embarcaciones,
   embarcacionesRetornadas,
   registrarRetorno,
-  deshacerRetorno,
+  deshacerRetorno
 }) => {
   const { id, nombre, matricula } = embarcacion;
 
@@ -20,38 +20,37 @@ const Embarcacion = ({
     return false;
   }
 
-    const registrarRetornoEmbarcacion = (id) => {
-        debugger;
+  const registrarRetornoEmbarcacion = (id) => {
     const embarcacion = embarcaciones.filter(
       (embarcacion) => embarcacion.id === id
     )[0];
-
-    const arrayActualizado = embarcaciones.filter(
-      (embarcacion) => embarcacion.id !== id
-    );
+    
+   const arrayActualizado = embarcaciones.filter(
+     (embarcacion) => embarcacion.id !== id
+   );
 
     if (!containsObject(embarcacion, embarcacionesRetornadas)) {
       registrarRetorno([...embarcacionesRetornadas, embarcacion]);
     }
 
-    deshacerRetorno(arrayActualizado);
+      deshacerRetorno(arrayActualizado);
   };
 
-    const deshacerRetornoEmbarcacion = (id) => {
-        debugger;
-    const embarcacionRetorno = embarcacionesRetornadas.filter(
-      (embarcacion) => embarcacion.id === id
-    )[0];
+  const deshacerRetornoEmbarcacion = (id) => {
+  debugger;
+  const embarcacionRetorno = embarcacionesRetornadas.filter(
+    (embarcacion) => embarcacion.id === id
+  )[0];
 
     const arrayRetornoActualizado = embarcacionesRetornadas.filter(
       (embarcacion) => embarcacion.id !== id
     );
 
-    if (!containsObject(embarcacionRetorno, embarcaciones)) {
-      deshacerRetorno(arrayRetornoActualizado);
-      registrarRetorno([...embarcaciones, embarcacionRetorno]);
-    }
-
+    //  if (!containsObject(embarcacionRetorno, embarcaciones)) {
+    //    deshacerRetorno([...embarcaciones, embarcacionRetorno]);
+        registrarRetorno(arrayRetornoActualizado);
+   //   }
+   // registrarRetorno(arrayRetornoActualizado);
     console.log("se deshace retorno de lancha");
   };
 
